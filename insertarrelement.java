@@ -1,20 +1,20 @@
+package arrayconcept;
 import java.util.Scanner; 
 class arrayelements
 {
     Scanner s= new Scanner(System.in);
     int a[]=new int[50],i,n;
-    static int countinsert=0;
     void get()
     { 
-	System.out.println("Enter how many elements");
+	    System.out.println("Enter how many elements");
         n=s.nextInt();
-	System.out.println("Enter the numbers");
+	    System.out.println("Enter the numbers");
         for(i=0;i<n;i++)
-	   a[i]=s.nextInt();
+	    a[i]=s.nextInt();
         
- 	System.out.println("Print the array elements");
-	for(i=0;i<n;i++)
-	   System.out.println(a[i]);
+ 	    System.out.println("Print the array elements");
+	    for(i=0;i<n;i++)
+	        System.out.println(a[i]);
     }
 
     void insert()
@@ -23,40 +23,39 @@ class arrayelements
          String ans=s.next();
          if(ans.equalsIgnoreCase("yes"))
          {
-		n+=countinsert;
-         	countinsert++;
          	System.out.println("Enter the new element");
          	int newele=s.nextInt();
          	System.out.println("New element stored direct location");
          	int location=s.nextInt();
-                if(location<n)
-                   System.out.println("index out of bounds "+location);
+                if(location>n)
+                   System.out.println("index "+location+" out of bounds exception");
                 else
                 {
-         	    for(int j=n-1;j>=location;j--)
-	 	         a[j+1]=a[j];
-         	
+         	    for(i=n-1;i>=location;i--)
+	 	          a[i+1]=a[i];
+         	    
         	    a[location]=newele;
+        	    
          	    System.out.println("After insert element");
          	    for(i=0;i<=n;i++)
-         	    {
-            	        System.out.println(a[i]);
-         	    } 
-                 
-                    insert();
+            	        System.out.println(+a[i]);
+         	    
+         	    n++;
+              
+                insert();
                }
          }
          else
          System.out.println("end");
     }
 }
-class insertarrelement
+
+public class insertarrelement 
 {
-public static void main(String arg[])
-{
-     Scanner x=new Scanner(System.in);
-     arrayelements ae=new arrayelements();
-     ae.get();
-     ae.insert();
-}
+	public static void main(String[] args)
+	{
+		     arrayelements ae=new arrayelements();
+		     ae.get();
+		     ae.insert();
+    }
 }
